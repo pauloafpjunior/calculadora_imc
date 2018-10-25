@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar #options>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Calculadora do IMC
     </ion-title>
@@ -18,9 +21,27 @@
       <ion-input type="number" placeholder="Informe sua altura" [(ngModel)]="altura"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-fab top right edge>
+  <ion-fab bottom right>
     <button ion-fab mini (click)="calcularIMC()">
       <ion-icon name="calculator"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>
+
+<ion-menu [content]="options">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item>
+        Tabela IMC
+      </button>
+      <button ion-item>
+        Peso ideal
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
