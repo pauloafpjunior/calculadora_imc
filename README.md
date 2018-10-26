@@ -13,6 +13,7 @@ Instale os scripts Ionic, utilizando o comando
 Instale o plugin NativeStorage, utilizando os comandos:
 
 `ionic cordova plugin add cordova-plugin-nativestorage`
+
 `npm install --save @ionic-native/native-storage` 
 
 # Executando no dispositivo móvel
