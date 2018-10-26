@@ -4,6 +4,7 @@ import { ToastController, NavController } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 import { InfoPage } from '../info/info';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Person } from '../../model/person';
 
 @Component({
   selector: 'page-home',
@@ -11,38 +12,21 @@ import { NativeStorage } from '@ionic-native/native-storage';
 })
 export class HomePage {
 
-  private _genero: string = "M";
-  private _peso: number = 1.0;
-  private _altura: number = 1.0;
-  private _dados_key: string = "DADOS";
+  private _person: Person;
+  private readonly _dados_key: string = "DADOS";
+
+  set person(person: Person) {
+    this._person = person;
+  }
+
+  get person() {
+    return this._person;
+  }
 
   constructor(private toastCtrl: ToastController,
     private navCtrl: NavController,
     private nativeStorage: NativeStorage) {
-  }
-
-  set genero(genero: string) {
-    this._genero = genero;
-  }
-
-  get genero() {
-    return this._genero;
-  }
-
-  set peso(peso: number) {
-    this._peso = peso;
-  }
-
-  get peso() {
-    return this._peso;
-  }
-
-  set altura(altura: number) {
-    this._altura = altura;
-  }
-
-  get altura() {
-    return this._altura;
+      this._person = new Person();
   }
 
   irParaTabelaIMC() {
@@ -51,43 +35,25 @@ export class HomePage {
 
   irParaPesoIdeal() {
     this.navCtrl.push(DetailsPage, {
-      altura: this._altura,
-      imc: this.calcularIMC(),
-      genero: this.genero
+      person: JSON.stringify(this._person)
     });
   }
 
-  calcularIMC() {
-    return (this._peso / (this._altura * this._altura));
-  }
-
   exibirIMC() {
-    let imc = this.calcularIMC();
+    let imc = this.person.calcularIMC();
     this.criarToast("IMC = " + new DecimalPipe("en").transform(imc, "1.2-2"));
   }
 
   ionViewDidEnter() {
     this.nativeStorage.getItem(this._dados_key)
       .then(
-        data => this.restaurarDados(data),
+        data => this.person = Person.copia(JSON.parse(data)),
         error => this.criarToast("Você não possui dados salvos no momento!")
       );
   }
 
-  restaurarDados(data) {
-    this._altura = data.altura;
-    this._peso = data.peso;
-    this._genero = data.genero;
-  }
-
   salvarDados() {
-    let dados = {
-      altura: this._altura,
-      peso: this._peso,
-      genero: this._genero,
-    };
-
-    this.nativeStorage.setItem(this._dados_key, dados)
+    this.nativeStorage.setItem(this._dados_key, JSON.stringify(this.person))
       .then(
         () => this.criarToast("Dados salvos com sucesso!"),
         error => this.criarToast("Erro: " + error)
