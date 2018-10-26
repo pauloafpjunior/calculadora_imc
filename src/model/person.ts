@@ -9,7 +9,7 @@ export class Person {
         this._peso = 64;
     }
 
-    static fromJSON(dados: Object): Person {
+    static copia(dados: Object): Person {
         return Object.assign(new Person(), dados);
     }
 
