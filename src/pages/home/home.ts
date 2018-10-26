@@ -66,7 +66,7 @@ export class HomePage {
     this.criarToast("IMC = " + new DecimalPipe("en").transform(imc, "1.2-2"));
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.nativeStorage.getItem(this._dados_key)
       .then(
         data => this.restaurarDados(data),
