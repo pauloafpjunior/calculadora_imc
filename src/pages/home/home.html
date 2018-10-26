@@ -12,17 +12,23 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
+        <ion-label fixed color="primary">Gênero</ion-label>
+        <ion-select [(ngModel)]="genero">
+          <ion-option value="M">Masculino</ion-option>
+          <ion-option value="F">Feminino</ion-option>          
+        </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-label fixed color="primary">Peso (kg)</ion-label>
       <ion-input type="number" placeholder="Informe seu peso" [(ngModel)]="peso"></ion-input>
     </ion-item>
-
     <ion-item>
       <ion-label fixed color="primary">Altura (m)</ion-label>
       <ion-input type="number" placeholder="Informe sua altura" [(ngModel)]="altura"></ion-input>
     </ion-item>
   </ion-list>
   <ion-fab bottom right>
-    <button ion-fab mini (click)="calcularIMC()">
+    <button ion-fab mini (click)="exibirIMC()">
       <ion-icon name="calculator"></ion-icon>
     </button>
   </ion-fab>
@@ -39,9 +45,12 @@
       <button menuClose ion-item (click)="irParaTabelaIMC()">
         Tabela IMC
       </button>
-      <button menuClose ion-item>
+      <button menuClose ion-item (click)="irParaPesoIdeal()">
         Peso ideal
       </button>
+      <button menuClose ion-item (click)="salvarDados()">
+          Salvar
+        </button>
     </ion-list>
   </ion-content>
 </ion-menu>
