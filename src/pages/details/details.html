@@ -1,11 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Tabela IMC</ion-title>
+    <ion-title>Peso Ideal</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
+    <ion-item>
+      <h2><strong>Peso</strong></h2>
+      <p>{{person.peso}}</p>
+    </ion-item>
+    <ion-item>
+      <h2><strong>Altura</strong></h2>
+      <p>{{person.altura}}</p>
+    </ion-item>
     <ion-item>
       <h2><strong>Situação</strong></h2>
       <p>{{person.obterSituacaoIMC()}}</p>
