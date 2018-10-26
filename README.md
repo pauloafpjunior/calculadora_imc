@@ -6,11 +6,11 @@ Baixe ou clone o repositório em sua máquina.
 
 Abra o terminal e entre na pasta correspondente ao aplicativo.
 
-Instale os scripts Ionic, utilizando o comando
+Instale os *scripts Ionic*, utilizando o comando
 
 `npm install @ionic/app-scripts@latest --save-dev`
 
-Instale o plugin NativeStorage, utilizando os comandos:
+Instale o plugin *NativeStorage*, utilizando os comandos:
 
 `ionic cordova plugin add cordova-plugin-nativestorage`
 
@@ -18,13 +18,13 @@ Instale o plugin NativeStorage, utilizando os comandos:
 
 # Executando no dispositivo móvel
 
-A forma mais simples de se testar o aplicativo no seu dispositivo móvel é por meio do aplicativo Ionic DevApp, oferecido pela equipe Ionic.
+A forma mais simples de se testar o aplicativo no seu dispositivo móvel é por meio do aplicativo *Ionic DevApp*, oferecido pela equipe *Ionic*.
 
-Baixe o Ionic DevApp na loja de aplicativos de seu dispositivo móvel.
+Baixe o *Ionic DevApp* na loja de aplicativos de seu dispositivo móvel.
 
 Conecte seu dispositivo na mesma rede do seu PC.
 
-Execute o comando abaixo e abra o aplicativo DevApp.
+Execute o comando abaixo e abra o aplicativo *Ionic DevApp* e divirta-se.
 
 `ionic serve -c`
 
