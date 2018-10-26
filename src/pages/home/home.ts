@@ -66,6 +66,20 @@ export class HomePage {
     this.criarToast("IMC = " + new DecimalPipe("en").transform(imc, "1.2-2"));
   }
 
+  ionViewDidLoad() {
+    this.nativeStorage.getItem(this._dados_key)
+      .then(
+        data => this.restaurarDados(data),
+        error => this.criarToast("Você não possui dados salvos no momento!")
+      );
+  }
+
+  restaurarDados(data) {
+    this._altura = data.altura;
+    this._peso = data.peso;
+    this._genero = data.genero;
+  }
+
   salvarDados() {
     let dados = {
       altura: this._altura,
