@@ -1,5 +1,6 @@
+import { DetailsPage } from './../details/details';
 import { Component } from '@angular/core';
-import { ToastController } from 'ionic-angular';
+import { ToastController, NavController } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
@@ -11,9 +12,9 @@ export class HomePage {
   private _peso: number = 1.0;
   private _altura: number = 1.0;
 
-  constructor(private toastCtrl: ToastController) {
+  constructor(private toastCtrl: ToastController, private navCtrl: NavController) {
   }
-
+  
   set peso(peso: number) {
     this._peso = peso;
   }
@@ -28,6 +29,10 @@ export class HomePage {
 
   get altura() {
     return this._altura;
+  }
+
+  irParaTabelaIMC() {
+    this.navCtrl.push(DetailsPage);
   }
 
   calcularIMC() {
