@@ -1,6 +1,6 @@
-## Calculadora de IMC
+# Calculadora de IMC
 
-# Instalação
+## Instalando
 
 Baixe ou clone o repositório em seu PC.
 
@@ -16,7 +16,7 @@ Instale o plugin *NativeStorage*, utilizando os comandos:
 
 `npm install --save @ionic-native/native-storage` 
 
-# Executando no dispositivo móvel
+## Executando no dispositivo móvel
 
 A forma mais simples de se testar o aplicativo em seu dispositivo móvel é por meio do aplicativo *Ionic DevApp*, oferecido pela equipe *Ionic*.
 
