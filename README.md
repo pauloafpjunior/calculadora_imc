@@ -1,5 +1,7 @@
 # Calculadora de IMC
 
+Aplicativo que calcula e mostra o Índice de Massa Corporal (IMC) de uma pessoa.
+
 ## Instalando
 
 Baixe ou clone o repositório em seu PC.
